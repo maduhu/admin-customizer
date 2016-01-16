@@ -152,6 +152,25 @@ $my_settings_another = array(
             ),
 
         ),
+        'dashboard' => array(
+            'id'          => 'dashboard',
+            'title'       => __( 'Dashboard', 'admin-customizer' ),
+            'sub_heading' => __( 'Dashboard settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_no_of_columns_available_in_dashboard' => array(
+                    'id'          => 'adns_no_of_columns_available_in_dashboard',
+                    'title'       => __( 'Dashboard Columns', 'admin-customizer' ),
+                    'type'        => 'radio',
+                    'choices'     => array(
+                        1 => 1,
+                        2 => 2,
+                        3 => 3,
+                        4 => 4,
+                    ),
+                ),
+            ),
+
+        ),
     ),
 );
 
