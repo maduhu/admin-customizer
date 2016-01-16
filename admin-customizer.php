@@ -168,8 +168,59 @@ $my_settings_another = array(
                         4 => 4,
                     ),
                 ),
+                'adns_add_custom_dashboard_widget_onoff' => array(
+                    'id'          => 'adns_add_custom_dashboard_widget_onoff',
+                    'title'       => __( 'Custom Dashboard Widget', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                ),
+                'adns_my_custom_dashboard_widget_title' => array(
+                    'id'          => 'adns_my_custom_dashboard_widget_title',
+                    'title'       => __( 'Custom Dashboard Widget Title', 'admin-customizer' ),
+                    'type'        => 'text',
+                ),
+                'adns_my_custom_dashboard_widget_content' => array(
+                    'id'          => 'adns_my_custom_dashboard_widget_content',
+                    'title'       => __( 'Custom Dashboard Widget Content', 'admin-customizer' ),
+                    'type'        => 'wysiwyg',
+                ),
             ),
-
+        ),
+        'footer' => array(
+            'id'          => 'footer',
+            'title'       => __( 'Footer', 'admin-customizer' ),
+            'sub_heading' => __( 'Footer settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_hide_whole_footer' => array(
+                    'id'          => 'adns_hide_whole_footer',
+                    'title'       => __( 'Hide Whole Footer', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                ),
+                'adns_hide_footer_text' => array(
+                    'id'          => 'adns_hide_footer_text',
+                    'title'       => __( 'Hide Footer Text', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                ),
+                'adns_footer_logo' => array(
+                    'id'          => 'adns_footer_logo',
+                    'title'       => __( 'Footer Logo', 'admin-customizer' ),
+                    'type'        => 'upload',
+                ),
+                'adns_footer_text' => array(
+                    'id'          => 'adns_footer_text',
+                    'title'       => __( 'Footer Text', 'admin-customizer' ),
+                    'type'        => 'text',
+                ),
+                'adns_hide_footer_version' => array(
+                    'id'          => 'adns_hide_footer_version',
+                    'title'       => __( 'Hide Footer Version', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                ),
+                'adns_footer_version' => array(
+                    'id'          => 'adns_footer_version',
+                    'title'       => __( 'Footer Version', 'admin-customizer' ),
+                    'type'        => 'text',
+                ),
+            ),
         ),
     ),
 );
