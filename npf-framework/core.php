@@ -136,9 +136,18 @@ if ( ! class_exists('NPF_Options')):
 					if ( 'url' == $field['type'] ) {
 						$input[$field['id']] = esc_url($input[$field['id']]);
 					}
-					// Email
-					if ( 'email' == $field['type'] ) {
-						$input[$field['id']] = sanitize_email($input[$field['id']]);
+                    // Email
+                    if ( 'email' == $field['type'] ) {
+                        $input[$field['id']] = sanitize_email($input[$field['id']]);
+                    }
+					// Checkbox simple.
+					if ( 'checkbox_simple' == $field['type'] ) {
+                        if ( isset( $input[ $field['id'] ] ) ) {
+                            $input[$field['id']] = true;
+                        }
+                        else {
+                            $input[$field['id']] = false;
+                        }
 					}
 					// On/Off
 					if ( 'on_off' == $field['type'] ) {
