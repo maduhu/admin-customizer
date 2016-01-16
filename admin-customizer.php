@@ -168,6 +168,18 @@ $my_settings_another = array(
                         4 => 4,
                     ),
                 ),
+                'adns_hide_dashboard_widgets' => array(
+                    'id'          => 'adns_hide_dashboard_widgets',
+                    'title'       => __( 'Hide Dashboard Widgets', 'admin-customizer' ),
+                    'description' => __( 'Check to Hide', 'admin-customizer' ),
+                    'type'        => 'checkbox',
+                    'choices'     => array(
+                        'dashboard_right_now'   => __( 'At a Glance', 'admin-customizer' ),
+                        'dashboard_quick_press' => __( 'Quick Draft', 'admin-customizer' ),
+                        'dashboard_activity'    => __( 'Activity', 'admin-customizer' ),
+                        'dashboard_primary'     => __( 'WordPress News', 'admin-customizer' ),
+                    ),
+                ),
                 'adns_add_custom_dashboard_widget_onoff' => array(
                     'id'          => 'adns_add_custom_dashboard_widget_onoff',
                     'title'       => __( 'Custom Dashboard Widget', 'admin-customizer' ),
