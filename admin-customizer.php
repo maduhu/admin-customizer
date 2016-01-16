@@ -53,15 +53,15 @@ $my_settings_another = array(
                     'choices'     => array(
                         '-1'     => __( 'Default', 'admin-customizer' ),
                         'CUSTOM' => __( 'Custom', 'admin-customizer' ),
-                        ),
                     ),
+                ),
                 'adns_custom_admin_theme_content' => array(
                     'id'          => 'adns_custom_admin_theme_content',
                     'title'       => __( 'Custom CSS for Admin', 'admin-customizer' ),
                     'description' => __( 'Enter CSS style code. You must chose Custom in Admin Theme option for this to be active.', 'admin-customizer' ),
                     'type'        => 'textarea',
                     'default'     => '',
-                    ),
+                ),
                 'adns_login_theme' => array(
                     'id'          => 'adns_login_theme',
                     'title'       => __( 'Login Theme', 'admin-customizer' ),
@@ -72,20 +72,88 @@ $my_settings_another = array(
                         '-1'     => __( 'Default', 'admin-customizer' ),
                         'CUSTOM' => __( 'Custom', 'admin-customizer' ),
                         'DARK'   => __( 'Dark Theme', 'admin-customizer' ),
-                        ),
                     ),
+                ),
                 'adns_custom_login_theme_content' => array(
                     'id'      => 'adns_custom_login_theme_content',
                     'title'   => __( 'Custom CSS for Login', 'admin-customizer' ),
                     'description' => __( 'Enter CSS style code. You must chose Custom in Login Theme option for this to be active.', 'admin-customizer' ),
                     'type'    => 'textarea',
                     'default' => '',
-                    ),
                 ),
-
             ),
+
         ),
-    );
+        'header' => array(
+            'id'          => 'header',
+            'title'       => __( 'Header', 'admin-customizer' ),
+            'sub_heading' => __( 'Header settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_hide_admin_logo' => array(
+                    'id'          => 'adns_hide_admin_logo',
+                    'title'       => __( 'Hide Default Admin Logo', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_admin_logo_url' => array(
+                    'id'          => 'adns_admin_logo_url',
+                    'title'       => __( 'Admin Logo', 'admin-customizer' ),
+                    'type'        => 'upload',
+                    'default'     => '',
+                ),
+                'adns_hide_comments_menu_header' => array(
+                    'id'          => 'adns_hide_comments_menu_header',
+                    'title'       => __( 'Hide Comments Menu', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_hide_updates_menu_header' => array(
+                    'id'          => 'adns_hide_updates_menu_header',
+                    'title'       => __( 'Hide Updates Menu', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_howdy_replace' => array(
+                    'id'          => 'adns_howdy_replace',
+                    'title'       => __( 'Howdy Text', 'admin-customizer' ),
+                    'type'        => 'text',
+                    'default'     => '',
+                ),
+                'adns_hide_adminbar_for_nonadmin' => array(
+                    'id'          => 'adns_hide_adminbar_for_nonadmin',
+                    'title'       => __( 'Hide Adminbar for non-admin', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_hide_help_tab' => array(
+                    'id'          => 'adns_hide_help_tab',
+                    'title'       => __( 'Hide Help Tab', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_hide_update_nagging_bar' => array(
+                    'id'          => 'adns_hide_update_nagging_bar',
+                    'title'       => __( 'Hide Update Nagging Bar', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_rearrange_logout_menu' => array(
+                    'id'          => 'adns_rearrange_logout_menu',
+                    'title'       => __( 'Rearrange Logout Menu', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+                'adns_enable_logout_confirmation' => array(
+                    'id'          => 'adns_enable_logout_confirmation',
+                    'title'       => __( 'Enable Logout Confirmation', 'admin-customizer' ),
+                    'type'        => 'on_off',
+                    'default'     => '',
+                ),
+            ),
+
+        ),
+    ),
+);
 
 $npf_demo_object_another = new NPF_Options( $my_settings_another );
 
