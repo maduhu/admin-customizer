@@ -222,6 +222,65 @@ $my_settings_another = array(
                 ),
             ),
         ),
+        'login' => array(
+            'id'          => 'login',
+            'title'       => __( 'Login', 'admin-customizer' ),
+            'sub_heading' => __( 'Login settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_login_logo_url' => array(
+                    'id'          => 'adns_login_logo_url',
+                    'title'       => __( 'Login Logo', 'admin-customizer' ),
+                    'type'        => 'upload',
+                ),
+                'adns_login_background_url' => array(
+                    'id'          => 'adns_login_background_url',
+                    'title'       => __( 'Background Image', 'admin-customizer' ),
+                    'type'        => 'upload',
+                ),
+                'adns_login_background_color' => array(
+                    'id'          => 'adns_login_background_color',
+                    'title'       => __( 'Login Background color', 'admin-customizer' ),
+                    'type'        => 'color',
+                ),
+            ),
+        ),
+        'other' => array(
+            'id'          => 'other',
+            'title'       => __( 'Other', 'admin-customizer' ),
+            'sub_heading' => __( 'Other settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_max_revision_count' => array(
+                    'id'      => 'adns_max_revision_count',
+                    'title'   => __( 'Number of Revisions', 'admin-customizer' ),
+                    'type'    => 'select',
+                    'choices' => array(
+                        '-1' => __( 'Save All', 'admin-customizer' ),
+                        '0'  => 0,
+                        '1'  => 1,
+                        '2'  => 2,
+                        '3'  => 3,
+                        '4'  => 4,
+                        '5'  => 5,
+                        '6'  => 6,
+                        '7'  => 7,
+                        '9'  => 9,
+                        '10' => 10,
+                    ),
+                ),
+                'adns_default_email_address_email' => array(
+                    'id'          => 'adns_default_email_address_email',
+                    'title'       => __( 'Default Email Address', 'admin-customizer' ),
+                    'description' => __( 'Enter email address used by automatic email notifications.', 'admin-customizer' ),
+                    'type'        => 'email',
+                ),
+                'adns_default_email_address_name' => array(
+                    'id'          => 'adns_default_email_address_name',
+                    'title'       => __( 'Default Name', 'admin-customizer' ),
+                    'description' => __( 'Enter default name used by automatic email notifications.', 'admin-customizer' ),
+                    'type'        => 'text',
+                ),
+            ),
+        ),
     ),
 );
 
