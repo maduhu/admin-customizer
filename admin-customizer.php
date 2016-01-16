@@ -19,10 +19,10 @@
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
-// If this file is called directly, abort.
-if (!defined('WPINC'))
-{
-    die;
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
 define('AC_BASENAME', plugin_basename(__FILE__));
