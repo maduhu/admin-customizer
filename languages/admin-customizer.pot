@@ -1,0 +1,404 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: admin-customizer\n"
+"POT-Creation-Date: 2014-04-05 22:48+0545\n"
+"PO-Revision-Date: 2014-04-05 22:48+0545\n"
+"Last-Translator: Nilambar Sharma <nilambar@outlook.com>\n"
+"Language-Team: \n"
+"Language: ne_NP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../../admin-customizer\n"
+
+#: ../../admin-customizer/admin-customizer.php:257
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: ../../admin-customizer/admin-customizer.php:268
+msgid "Settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:9
+msgid "Admin Customizer Settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:22
+msgid "Theme"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:23
+msgid "Header"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:24
+msgid "Dashboard"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:25
+msgid "Footer"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:26
+msgid "Login"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:27
+msgid "Other"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:31
+msgid "Theme settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:36
+msgid "Admin Theme"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:37
+#: ../../admin-customizer/views/admin.php:48
+msgid "Choose admin theme"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:40
+#: ../../admin-customizer/views/admin.php:51
+msgid "Default"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:41
+#: ../../admin-customizer/views/admin.php:52
+msgid "Custom"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:47
+msgid "Login Theme"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:53
+msgid "Dark Theme"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:59
+msgid "Enter CSS style code for Admin"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:60
+msgid ""
+"Enter CSS style code. You must chose 'Custom' in Admin Theme option for this "
+"to be active."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:67
+msgid "Enter CSS style code for Login Page"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:68
+msgid ""
+"Enter CSS style code. You must chose 'Custom' in Login Theme option for this "
+"to be active."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:77
+msgid "Header settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:82
+msgid "Hide Default Admin logo"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:87
+#: ../../admin-customizer/views/admin.php:108
+#: ../../admin-customizer/views/admin.php:117
+#: ../../admin-customizer/views/admin.php:133
+#: ../../admin-customizer/views/admin.php:143
+#: ../../admin-customizer/views/admin.php:153
+#: ../../admin-customizer/views/admin.php:312
+#: ../../admin-customizer/views/admin.php:322
+#: ../../admin-customizer/views/admin.php:348
+msgid "Hide"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:94
+msgid "Admin logo URL"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:96
+msgid ""
+"Enter full URL for admin logo image starting with <strong>http://</strong>. "
+"Image size 20px X 20px."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:98
+#: ../../admin-customizer/views/admin.php:331
+#: ../../admin-customizer/views/admin.php:369
+#: ../../admin-customizer/views/admin.php:376
+msgid "Upload"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:104
+msgid "Hide Comments Menu"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:113
+msgid "Hide Updates Menu"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:122
+msgid "Replace Howdy"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:123
+#, php-format
+msgid "Enter text to replace %sHowdy%s."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:129
+msgid "Hide Adminbar for non-admin"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:138
+msgid "Hide Help Tab"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:148
+msgid "Hide Update Nagging Bar"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:158
+msgid "Rearrange Logout menu"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:163
+msgid "Rearrange"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:168
+msgid "Enable Logout confirmation"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:173
+#: ../../admin-customizer/views/admin.php:280
+msgid "Enable"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:180
+msgid "Dashboard settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:185
+msgid "No. of Columns in Dashboard"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:189
+msgid "1"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:193
+msgid "2"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:197
+msgid "3"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:201
+msgid "4"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:206
+msgid "Hide Dashboard Widgets"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:207
+msgid "Check to hide widgets."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:212
+msgid "Plugins widget"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:219
+msgid "Recent Comments"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:226
+msgid "Primary widget"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:233
+msgid "Incoming Links"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:240
+msgid "Right now widget"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:247
+msgid "Secondary widget"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:254
+msgid "Recent Drafts"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:261
+msgid "Quick Press"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:268
+msgid "Activity"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:275
+msgid "Add custom dashboard widget"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:285
+msgid "Custom Dashboard Widget Title"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:286
+msgid "Enter custom dashboard widget title."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:292
+msgid "Custom Dashboard Widget Content"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:293
+msgid "Enter custom dashboard widget content in html."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:302
+msgid "Footer settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:307
+msgid "Hide Whole Footer"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:317
+msgid "Hide Footer Text"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:327
+msgid "Footer Logo URL"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:329
+msgid ""
+"Enter full URL for logo image starting with <strong>http://</strong>. Image "
+"size 30px X 30px."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:336
+msgid "Footer Text"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:337
+msgid "Enter Footer Text."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:343
+msgid "Hide Footer Version"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:353
+msgid "Footer Version"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:354
+msgid "Enter Footer Version."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:362
+msgid "Login settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:367
+msgid "Login logo URL"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:368
+msgid ""
+"Enter full URL for login logo image starting with <strong>http://</strong>. "
+"Image dimension - 274px X 63px"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:374
+msgid "Login background image URL"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:375
+msgid ""
+"Enter full URL for login logo image starting with <strong>http://</strong>"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:381
+msgid "Login background color"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:382
+msgid "Choose Login background color"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:390
+msgid "Other settings"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:395
+msgid "Number of revisions"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:396
+msgid ""
+"Limit the number of revisions in posts and pages. [Note: This could be "
+"overridden by template.]"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:399
+msgid "Save all"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:408
+msgid "Default email address"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:409
+msgid "Enter email address used by automatic email notifications."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:415
+msgid "Default name"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:416
+msgid "Enter default name used by automatic email notifications."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:422
+msgid "Remove Default Contact Methods"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:423
+msgid "Check to remove contact methods."
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:429
+msgid "AIM"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:436
+msgid "Yahoo IM"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:443
+msgid "Jabber/Google Talk"
+msgstr ""
+
+#: ../../admin-customizer/views/admin.php:453
+msgid "Save Changes"
+msgstr ""
