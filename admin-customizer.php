@@ -29,6 +29,67 @@ define('AC_BASENAME', plugin_basename(__FILE__));
 define('AC_BASEFOLDER', plugin_basename(dirname(__FILE__)));
 define('AC_FILENAME', str_replace(AC_BASEFOLDER . '/', '', plugin_basename(__FILE__)));
 
+require_once 'npf-framework/init.php';
+
+$my_settings_another = array(
+    'page_title'  => __( 'Admin Customizer', 'admin-customizer' ),
+    'menu_title'  => __( 'Admin Customizer', 'admin-customizer' ),
+    'capability'  => 'administrator',
+    'menu_slug'   => 'admin-customizer',
+    'option_slug' => 'adns_options',
+
+    'tabs' => array(
+        'theme' => array(
+            'id'          => 'theme',
+            'title'       => __( 'Theme', 'admin-customizer' ),
+            'sub_heading' => __( 'Theme settings', 'admin-customizer' ),
+            'fields'      => array(
+                'adns_admin_theme' => array(
+                    'id'          => 'adns_admin_theme',
+                    'title'       => __( 'Admin Theme', 'admin-customizer' ),
+                    'description' => __( 'Choose Admin Theme', 'admin-customizer' ),
+                    'type'        => 'select',
+                    'default'     => '',
+                    'choices'     => array(
+                        '-1'     => __( 'Default', 'admin-customizer' ),
+                        'CUSTOM' => __( 'Custom', 'admin-customizer' ),
+                        ),
+                    ),
+                'adns_custom_admin_theme_content' => array(
+                    'id'          => 'adns_custom_admin_theme_content',
+                    'title'       => __( 'Custom CSS for Admin', 'admin-customizer' ),
+                    'description' => __( 'Enter CSS style code. You must chose Custom in Admin Theme option for this to be active.', 'admin-customizer' ),
+                    'type'        => 'textarea',
+                    'default'     => '',
+                    ),
+                'adns_login_theme' => array(
+                    'id'          => 'adns_login_theme',
+                    'title'       => __( 'Login Theme', 'admin-customizer' ),
+                    'description' => __( 'Choose Login Theme', 'admin-customizer' ),
+                    'type'        => 'select',
+                    'default'     => '',
+                    'choices'     => array(
+                        '-1'     => __( 'Default', 'admin-customizer' ),
+                        'CUSTOM' => __( 'Custom', 'admin-customizer' ),
+                        'DARK'   => __( 'Dark Theme', 'admin-customizer' ),
+                        ),
+                    ),
+                'adns_custom_login_theme_content' => array(
+                    'id'      => 'adns_custom_login_theme_content',
+                    'title'   => __( 'Custom CSS for Login', 'admin-customizer' ),
+                    'description' => __( 'Enter CSS style code. You must chose Custom in Login Theme option for this to be active.', 'admin-customizer' ),
+                    'type'    => 'textarea',
+                    'default' => '',
+                    ),
+                ),
+
+            ),
+        ),
+    );
+
+$npf_demo_object_another = new NPF_Options( $my_settings_another );
+
+
 class AdminCustomizer
 {
 
@@ -94,6 +155,7 @@ class AdminCustomizer
      */
     function __construct()
     {
+        return;
 
         //initialization
         global $wp_version;
