@@ -10,9 +10,9 @@
 
     <h2 class="nav-tab-wrapper">
 
-     <?php foreach ($this->base_args['tabs'] as $tab_key => $tab_value): ?>
+     <?php foreach ($this->base_args['tabs'] as $tab_key => $tab_value) : ?>
 
-      <span><a href="#npf-<?php echo $tab_value['id']; ?>" class="nav-tab"><?php echo $tab_value['title']; ?></a></span>
+      <span id="<?php echo 'tab-' . esc_attr( $this->base_args['menu_slug'] . '-' . $tab_key ); ?>"><a href="#npf-<?php echo $tab_value['id']; ?>" class="nav-tab"><?php echo $tab_value['title']; ?></a></span>
 
      <?php endforeach ?>
 

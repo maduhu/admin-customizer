@@ -4,9 +4,9 @@ jQuery(document).ready(function($){
 	// Tabs
 	$('#npf-tab-container').easytabs({
 		defaultTab: "span:first-child",
-    tabs: "> h2 > span ",
-    tabActiveClass: "nav-tab-active",
-    updateHash: false,
+        tabs: "> h2 > span ",
+        tabActiveClass: "nav-tab-active",
+        updateHash: false,
 	});
 
 	// Date picker
