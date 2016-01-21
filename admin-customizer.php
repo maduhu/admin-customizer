@@ -29,8 +29,6 @@ define('AC_BASENAME', plugin_basename(__FILE__));
 define('AC_BASEFOLDER', plugin_basename(dirname(__FILE__)));
 define('AC_FILENAME', str_replace(AC_BASEFOLDER . '/', '', plugin_basename(__FILE__)));
 
-global $admin_customizer_default_options;
-
 require_once 'npf-framework/init.php';
 require_once 'inc/plugin-options.php';
 

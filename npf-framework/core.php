@@ -140,9 +140,15 @@ if ( ! class_exists('NPF_Options')):
                     if ( 'email' == $field['type'] ) {
                         $input[$field['id']] = sanitize_email($input[$field['id']]);
                     }
-					// Checkbox simple.
-					if ( 'checkbox_simple' == $field['type'] ) {
+                    // Checkbox simple.
+                    if ( 'checkbox_simple' == $field['type'] ) {
                         $input[ $field['id'] ] = esc_attr( $input[ $field['id'] ] );
+                    }
+					// Checkbox.
+					if ( 'checkbox' == $field['type'] ) {
+                        if ( ! isset( $input[ $field['id'] ] ) ) {
+                            $input[ $field['id'] ] = array();
+                        }
 					}
 					// On/Off.
 					if ( 'on_off' == $field['type'] ) {

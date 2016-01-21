@@ -15,10 +15,11 @@ if ( ! class_exists('npf_field_checkbox')):
 		function render_field($args)
 		{
 
+            $field_value = $this->get_value( $args );
 			if (isset($args['field']['choices'])) {
 				foreach ($args['field']['choices'] as $key => $choice) {
 					$checked_text = '';
-					if (is_array($args['field_value']) && in_array($key, $args['field_value'])) {
+					if (is_array($field_value) && in_array($key, $field_value)) {
 						$checked_text = ' checked="checked" ';
 					}
 					echo '<input type="checkbox" name="'.$args['field_name'].'[]" id="'.$args['field_id'].'-'.esc_attr($key).'" '.$checked_text.' value="'.esc_attr($key).'" class="stylish-checkbox" />';
