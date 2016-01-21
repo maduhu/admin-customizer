@@ -12,7 +12,7 @@
 
      <?php foreach ($this->base_args['tabs'] as $tab_key => $tab_value) : ?>
 
-      <span id="<?php echo 'tab-' . esc_attr( $this->base_args['menu_slug'] . '-' . $tab_key ); ?>"><a href="#npf-<?php echo $tab_value['id']; ?>" class="nav-tab"><?php echo $tab_value['title']; ?></a></span>
+      <span id="<?php echo 'tab-' . esc_attr( $this->base_args['menu_slug'] . '-' . $tab_key ); ?>"><a href="#npf-<?php echo $this->base_args['menu_slug'].'-'.$tab_value['id']; ?>" class="nav-tab"><?php echo $tab_value['title']; ?></a></span>
 
      <?php endforeach ?>
 
@@ -25,7 +25,7 @@
 
     foreach ($this->base_args['tabs'] as $tab_key => $tab) {
 
-      echo '<div id="npf-'.$tab['id'].'" class="single-tab-content">';
+      echo '<div id="npf-'.$this->base_args['menu_slug'].'-'.$tab['id'].'" class="single-tab-content">';
       do_settings_sections($tab['id'].'-'.$this->base_args['menu_slug']);
       echo '</div>';
 

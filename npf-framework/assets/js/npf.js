@@ -2,12 +2,21 @@ var file_frame;
 jQuery(document).ready(function($){
 
 	// Tabs
-	$('#npf-tab-container').easytabs({
-		defaultTab: "span:first-child",
+    var $npf_tab_container = $('#npf-tab-container');
+    var default_tab_value = 'span:first-child';
+    var npf_selected_tab = cookie.get('npf-selected-tab');
+    if ( npf_selected_tab && 'undefined' != npf_selected_tab ) {
+        default_tab_value = '#' + npf_selected_tab;
+    }
+    $npf_tab_container.easytabs({
+        defaultTab: default_tab_value,
         tabs: "> h2 > span ",
         tabActiveClass: "nav-tab-active",
         updateHash: false,
-	});
+    }).bind('easytabs:after', function(){
+        var selected_tab = $(this).find('.nav-tab-active').attr('id');
+        cookie.set( 'npf-selected-tab', selected_tab );
+    });
 
 	// Date picker
 	$('input.select-date').datepicker();
