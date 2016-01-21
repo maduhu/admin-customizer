@@ -142,23 +142,21 @@ if ( ! class_exists('NPF_Options')):
                     }
 					// Checkbox simple.
 					if ( 'checkbox_simple' == $field['type'] ) {
-                        if ( isset( $input[ $field['id'] ] ) ) {
-                            $input[$field['id']] = true;
+                        $input[ $field['id'] ] = esc_attr( $input[ $field['id'] ] );
+					}
+					// On/Off.
+					if ( 'on_off' == $field['type'] ) {
+						if ( isset($input[ $field['id'] ] ) ) {
+                            $input[ $field['id'] ] = 'ON';
                         }
                         else {
-                            $input[$field['id']] = false;
+							$input[ $field['id'] ] = 'OFF';
                         }
-					}
-					// On/Off
-					if ( 'on_off' == $field['type'] ) {
-						if ( ! isset($input[$field['id']]) ) {
-							$input[$field['id']] = 'OFF';
-						}
 					}
 					// Switch
 					if ( 'switch' == $field['type'] ) {
 						if ( ! isset($input[$field['id']]) ) {
-							$off_value =='';
+							$off_value = '';
 							if (isset($field['choices_off'])) {
 								reset($field['choices_off']);
 								$off_value = key($field['choices_off']);

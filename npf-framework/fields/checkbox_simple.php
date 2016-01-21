@@ -16,6 +16,7 @@ if ( ! class_exists('npf_field_checkbox_simple')):
 		{
 
             $field_value = $this->get_value( $args );
+            echo '<input type="hidden" name="' . $args['field_name'] . '" value="0" />';
             echo '<input type="checkbox" name="' . $args['field_name'] . '" id="' . $args['field_id'] . '" value="1" ' . checked( $field_value, 1, false ) . ' />';
 
 		}

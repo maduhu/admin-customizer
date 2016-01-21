@@ -122,13 +122,13 @@ $admin_customizer_settings = array(
                 'adns_hide_comments_menu_header' => array(
                     'id'          => 'adns_hide_comments_menu_header',
                     'title'       => __( 'Hide Comments Menu', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_hide_updates_menu_header' => array(
                     'id'          => 'adns_hide_updates_menu_header',
                     'title'       => __( 'Hide Updates Menu', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_howdy_replace' => array(
@@ -140,31 +140,31 @@ $admin_customizer_settings = array(
                 'adns_hide_adminbar_for_nonadmin' => array(
                     'id'          => 'adns_hide_adminbar_for_nonadmin',
                     'title'       => __( 'Hide Adminbar for non-admin', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_hide_help_tab' => array(
                     'id'          => 'adns_hide_help_tab',
                     'title'       => __( 'Hide Help Tab', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_hide_update_nagging_bar' => array(
                     'id'          => 'adns_hide_update_nagging_bar',
                     'title'       => __( 'Hide Update Nagging Bar', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_rearrange_logout_menu' => array(
                     'id'          => 'adns_rearrange_logout_menu',
                     'title'       => __( 'Rearrange Logout Menu', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
                 'adns_enable_logout_confirmation' => array(
                     'id'          => 'adns_enable_logout_confirmation',
                     'title'       => __( 'Enable Logout Confirmation', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                     'default'     => '',
                 ),
             ),
@@ -201,7 +201,7 @@ $admin_customizer_settings = array(
                 'adns_add_custom_dashboard_widget_onoff' => array(
                     'id'          => 'adns_add_custom_dashboard_widget_onoff',
                     'title'       => __( 'Custom Dashboard Widget', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                 ),
                 'adns_my_custom_dashboard_widget_title' => array(
                     'id'          => 'adns_my_custom_dashboard_widget_title',
@@ -223,12 +223,12 @@ $admin_customizer_settings = array(
                 'adns_hide_whole_footer' => array(
                     'id'          => 'adns_hide_whole_footer',
                     'title'       => __( 'Hide Whole Footer', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                 ),
                 'adns_hide_footer_text' => array(
                     'id'          => 'adns_hide_footer_text',
                     'title'       => __( 'Hide Footer Text', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                 ),
                 'adns_footer_logo' => array(
                     'id'          => 'adns_footer_logo',
@@ -243,7 +243,7 @@ $admin_customizer_settings = array(
                 'adns_hide_footer_version' => array(
                     'id'          => 'adns_hide_footer_version',
                     'title'       => __( 'Hide Footer Version', 'admin-customizer' ),
-                    'type'        => 'on_off',
+                    'type'        => 'checkbox_simple',
                 ),
                 'adns_footer_version' => array(
                     'id'          => 'adns_footer_version',
