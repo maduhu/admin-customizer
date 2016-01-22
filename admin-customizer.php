@@ -76,6 +76,8 @@ class AdminCustomizer {
 
 		// Admin logo URL.
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
+		// Hide admin default logo.
+		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
 	}
 	/**
@@ -107,30 +109,30 @@ class AdminCustomizer {
 		return $links;
 	}
 
-    /**
-     * Admin admin logo.
-     *
-     * @since 2.0.0
-     */
+	/**
+	 * Admin admin logo.
+	 *
+	 * @since 1.0.0
+	 */
 	public function add_admin_logo() {
 
-        if ( empty( $this->options['adns_admin_logo_url'] ) ) {
-            return;
-        }
-		$url = esc_url( $this->options['adns_admin_logo_url'] );
-        $alt_text = get_bloginfo( 'name', 'display' ) . ' ' . __( 'Admin', 'admin-customizer' );
+		if ( empty( $this->options['adns_admin_logo_url'] ) ) {
+			return;
+		}
+		$url = $this->options['adns_admin_logo_url'];
+		$alt_text = get_bloginfo( 'name', 'display' ) . ' ' . __( 'Admin', 'admin-customizer' );
 		?>
         <script type="text/javascript">
             jQuery(document).ready(function($) {
                 var image = $('<img/>', {
-                    src: '<?php echo $url; ?>',
+                    src: '<?php echo esc_url( $url ); ?>',
                     alt: '<?php echo esc_attr( $alt_text ); ?>',
                     style: 'padding-top:4px;height:25px'
                 });
                 var anchorlink = $('<a/>', {
                     href: '<?php echo esc_url( admin_url() ); ?>',
                     html: image,
-                    title: '<?php echo get_bloginfo( 'name', 'display' ); ?>'
+                    title: '<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
                 });
                 jQuery('<li/>', {
                     html: anchorlink,
@@ -140,6 +142,28 @@ class AdminCustomizer {
         </script>
         <?php
 	}
+
+	/**
+	 * Hide default admin logo.
+	 *
+	 * @since 1.0.0
+	 */
+	public function hide_admin_logo() {
+		global $wp_admin_bar;
+		// Admin bar logo.
+		if ( 1 === absint( $this->options['adns_hide_admin_logo'] ) ) {
+			$wp_admin_bar->remove_menu( 'wp-logo' );
+			$wp_admin_bar->remove_menu( 'view-site' );
+		}
+		// Comment popup.
+		if ( 1 === absint( $this->options['adns_hide_comments_menu_header'] ) ) {
+			$wp_admin_bar->remove_menu( 'comments' );
+		}
+		// Update notification.
+		if ( 1 === absint( $this->options['adns_hide_updates_menu_header'] ) ) {
+			$wp_admin_bar->remove_menu( 'updates' );
+		}
+	}
 }
 
-$admin_customizer = new AdminCustomizer();
+	$admin_customizer = new AdminCustomizer();
