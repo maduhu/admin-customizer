@@ -79,6 +79,9 @@ class AdminCustomizer {
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
+		// Admin bar My account customization.
+		add_action( 'admin_bar_menu', array( $this, 'admin_bar_my_account_customization' ) );
+
 	}
 	/**
 	 * Plugin init.
@@ -164,6 +167,33 @@ class AdminCustomizer {
 			$wp_admin_bar->remove_menu( 'updates' );
 		}
 	}
+	/**
+	 * Add the "My Account" item.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param WP_Admin_Bar $wp_admin_bar WP Admin Bar object.
+	 */
+	function admin_bar_my_account_customization( $wp_admin_bar ) {
+
+		$user_id      = get_current_user_id();
+		$current_user = wp_get_current_user();
+
+		if ( ! $user_id ) {
+			return;
+		}
+
+		$howdy = $current_user->display_name;
+		if ( ! empty( $this->options['adns_howdy_replace'] ) ) {
+			$howdy = esc_html( $this->options['adns_howdy_replace'] ) . ' ' . $howdy;
+		}
+
+		$wp_admin_bar->add_node( array(
+			'id'    => 'my-account',
+			'title' => $howdy,
+		) );
+
+	}
 }
 
-	$admin_customizer = new AdminCustomizer();
+$admin_customizer = new AdminCustomizer();
