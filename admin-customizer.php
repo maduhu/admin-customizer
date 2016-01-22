@@ -77,6 +77,7 @@ class AdminCustomizer {
 		// Admin logo URL.
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
 		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
+		add_action( 'admin_head', array( $this, 'hide_help_tab' ) );
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
@@ -202,6 +203,7 @@ class AdminCustomizer {
 			$wp_admin_bar->remove_menu( 'updates' );
 		}
 	}
+
 	/**
 	 * Add the "My Account" item.
 	 *
@@ -228,6 +230,18 @@ class AdminCustomizer {
 			'title' => $howdy,
 		) );
 
+	}
+
+	/**
+	 * Hide help tab.
+	 *
+	 * @since 2.0.0
+	 */
+	public function hide_help_tab() {
+
+		if ( 1 === absint( $this->options['adns_hide_help_tab'] ) ) {
+			echo '<style type="text/css">#contextual-help-link-wrap { display: none !important; }</style>';
+		}
 	}
 }
 
