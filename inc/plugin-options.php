@@ -16,6 +16,14 @@ function adns_get_option( $key ) {
     return $value;
 }
 
+function adns_get_options() {
+    $default_options = adns_get_default_options();
+    $plugin_options = get_option( 'adns_options' );
+    $plugin_options = array_merge( $default_options, (array)$plugin_options );
+    return $plugin_options;
+}
+
+
 function adns_get_default_options() {
     $def = array(
         'adns_admin_logo_url' => '',
