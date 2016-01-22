@@ -273,6 +273,7 @@ class AdminCustomizer {
 	 */
 	public function custom_login_css() {
 
+        // Login logo.
 		if ( ! empty( $this->options['adns_login_logo_url'] ) ) {
 			echo '<style type="text/css">
               div#login h1 a { background-image:url(' . esc_url( $this->options['adns_login_logo_url'] ) . ') !important;
@@ -288,6 +289,20 @@ class AdminCustomizer {
 				echo '</style>';
 			}
 		}
+
+        // Login background image.
+        if ( ! empty( $this->options['adns_login_background_url'] ) ){
+            echo '<style type="text/css">';
+            echo 'body.login { background : url(' . esc_url( $this->options['adns_login_background_url'] ) . ') no-repeat scroll center top !important; }' ;
+            echo '</style>';
+        }
+
+        // Login background color.
+        if ( ! empty( $this->options['adns_login_background_color'] ) ){
+            echo '<style type="text/css">';
+            echo 'body.login {background-color:'  . esc_attr( $this->options['adns_login_background_color'] ) . '!important;} ';
+            echo '</style>';
+        }
 
 	}
 
