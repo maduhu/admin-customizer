@@ -267,6 +267,7 @@ $admin_customizer_settings = array(
                 'adns_footer_logo' => array(
                     'id'          => 'adns_footer_logo',
                     'title'       => __( 'Footer Logo', 'admin-customizer' ),
+                    'description' => sprintf( __( 'Recommended Size: %dpx x %dpx', 'admin-customizer' ) , 30, 30 ),
                     'type'        => 'upload',
                     'default'     => $admin_customizer_default_options['adns_footer_logo'],
                 ),

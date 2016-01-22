@@ -77,12 +77,16 @@ class AdminCustomizer {
 		// Admin logo URL.
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
 		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
-		add_action( 'admin_head', array( $this, 'hide_help_tab' ) );
+		add_action( 'admin_head', array( $this, 'custom_css' ) );
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
 		// Admin bar My account customization.
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_my_account_customization' ) );
+		// Update footer version.
+		add_filter( 'update_footer', array( $this, 'change_footer_version' ), 9999 );
+		// Footer message.
+		add_filter( 'admin_footer_text', array( $this, 'change_footer_text' ) );
 
 	}
 	/**
@@ -237,11 +241,55 @@ class AdminCustomizer {
 	 *
 	 * @since 2.0.0
 	 */
-	public function hide_help_tab() {
+	public function custom_css() {
 
+		// Hide help tab.
 		if ( 1 === absint( $this->options['adns_hide_help_tab'] ) ) {
 			echo '<style type="text/css">#contextual-help-link-wrap { display: none !important; }</style>';
 		}
+		// Hide footer.
+		if ( 1 === absint( $this->options['adns_hide_whole_footer'] ) ) {
+			echo '<style type="text/css">#wpfooter { display:none!important; }</style>';
+		}
+	}
+
+	/**
+	 * Change footer version content.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $output Footer content.
+	 * @return string Modified footer content.
+	 */
+	public function change_footer_version( $output ) {
+
+		$output = '';
+		if ( 1 !== absint( $this->options['adns_hide_footer_version'] ) ) {
+			$output .= wp_kses_post( $this->options['adns_footer_version'] );
+		}
+		return $output;
+	}
+
+	/**
+	 * Change footer content.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $output Footer content.
+	 * @return string Modified footer content.
+	 */
+	public function change_footer_text( $output ) {
+
+		$output = '';
+		if ( 1 === absint( $this->options['adns_hide_footer_text'] ) ) {
+			return $output;
+		}
+
+		if ( ! empty( $this->options['adns_footer_logo'] ) ) {
+			$output = '<img src="' . esc_url( $this->options['adns_footer_logo'] ) . '" alt="" class="adns-footer-logo" />';
+		}
+		$output .= wp_kses_post( $this->options['adns_footer_text'] );
+		return $output;
 	}
 }
 
