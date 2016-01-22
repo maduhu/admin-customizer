@@ -22,7 +22,7 @@
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 // Define.
@@ -40,72 +40,106 @@ require_once 'inc/plugin-options.php';
  */
 class AdminCustomizer {
 
-    /**
-     * Plugin options.
-     *
-     * @var string
-     * @since 2.0.0
-     */
-    private $options = array();
+	/**
+	 * Plugin options.
+	 *
+	 * @var string
+	 * @since 2.0.0
+	 */
+	private $options = array();
+
+	/**
+	 * Constructor.
+	 *
+	 * @since 2.0.0
+	 */
+	function __construct() {
+
+		$this->options = adns_get_options();
+
+		$this->init_hooks();
+
+	}
+
+	/**
+	 * Hook into actions and filters.
+	 *
+	 * @since 2.0.0
+	 * @access private
+	 */
+	private function init_hooks() {
+		add_action( 'init', array( $this, 'init' ), 0 );
+
+		// Add settings link in plugin listing.
+		$plugin = plugin_basename( __FILE__ );
+		add_filter( 'plugin_action_links_' . $plugin, array( $this, 'add_settings_link' ) );
+
+		// Admin logo URL.
+		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
+
+	}
+	/**
+	 * Plugin init.
+	 *
+	 * @since 2.0.0
+	 */
+	function init() {
+		// Load plugin text domain.
+		load_plugin_textdomain( 'admin-customizer', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	}
+
+	/**
+	 * Links in plugin listing.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $links Array of links.
+	 * @return array Modified array of links.
+	 */
+	public function add_settings_link( $links ) {
+		$url = add_query_arg( array(
+			'page' => 'admin-customizer',
+			),
+			admin_url( 'options-general.php' )
+		);
+		$settings_link = '<a href="' . esc_url( $url ) . '">' . __( 'Settings', 'admin-customizer' ) . '</a>';
+		array_unshift( $links, $settings_link );
+		return $links;
+	}
 
     /**
-     * Constructor.
+     * Admin admin logo.
      *
      * @since 2.0.0
      */
-    function __construct() {
+	public function add_admin_logo() {
 
-        $this->options = adns_get_options();
-
-        $this->init_hooks();
-
-    }
-
-    /**
-     * Hook into actions and filters.
-     *
-     * @since 2.0.0
-     * @access private
-     */
-    private function init_hooks() {
-        // register_activation_hook( __FILE__, array( 'DemoBar_Install', 'install' ) );
-        add_action( 'init', array( $this, 'init' ), 0 );
-
-        // Add settings link in plugin listing.
-        $plugin = plugin_basename( __FILE__ );
-        add_filter( 'plugin_action_links_' . $plugin, array( $this, 'add_settings_link' ) );
-
-    }
-    /**
-     * Plugin init.
-     *
-     * @since 2.0.0
-     */
-    function init() {
-        // Load plugin text domain.
-        load_plugin_textdomain( 'admin-customizer', false, basename( dirname( __FILE__ ) ) . '/languages' );
-    }
-
-    /**
-     * Links in plugin listing.
-     *
-     * @since 2.0.0
-     *
-     * @param array $links Array of links.
-     * @return array Modified array of links.
-     */
-    public function add_settings_link( $links ) {
-        $url = add_query_arg( array(
-            'page' => 'admin-customizer',
-            ),
-            admin_url( 'options-general.php' )
-        );
-        $settings_link = '<a href="' . esc_url( $url ) . '">' . __( 'Settings', 'admin-customizer' ) . '</a>';
-        array_unshift( $links, $settings_link );
-        return $links;
-    }
-
+        if ( empty( $this->options['adns_admin_logo_url'] ) ) {
+            return;
+        }
+		$url = esc_url( $this->options['adns_admin_logo_url'] );
+        $alt_text = get_bloginfo( 'name', 'display' ) . ' ' . __( 'Admin', 'admin-customizer' );
+		?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                var image = $('<img/>', {
+                    src: '<?php echo $url; ?>',
+                    alt: '<?php echo esc_attr( $alt_text ); ?>',
+                    style: 'padding-top:4px;height:25px'
+                });
+                var anchorlink = $('<a/>', {
+                    href: '<?php echo esc_url( admin_url() ); ?>',
+                    html: image,
+                    title: '<?php echo get_bloginfo( 'name', 'display' ); ?>'
+                });
+                jQuery('<li/>', {
+                    html: anchorlink,
+                    class: 'menupop'
+                }).prependTo( '#wp-admin-bar-root-default' );
+            });
+        </script>
+        <?php
+	}
 }
 
 $admin_customizer = new AdminCustomizer();
-// nspre($admin_customizer);
