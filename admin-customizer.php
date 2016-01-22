@@ -76,6 +76,7 @@ class AdminCustomizer {
 
 		// Admin logo URL.
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
+		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
@@ -141,6 +142,40 @@ class AdminCustomizer {
                     html: anchorlink,
                     class: 'menupop'
                 }).prependTo( '#wp-admin-bar-root-default' );
+            });
+        </script>
+        <?php
+	}
+
+	/**
+	 * Rearrange logout menu.
+	 *
+	 * @since 1.0.0
+	 */
+	public function rearrange_logout_menu() {
+
+		if ( 1 !== absint( $this->options['adns_rearrange_logout_menu'] ) ) {
+			return;
+		}
+		$sure_text = __( 'Are you sure?', 'admin-customizer' );
+		?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                var $logout = jQuery('#wp-admin-bar-user-actions li:eq(2)');
+                jQuery('#wp-admin-bar-user-actions').remove();
+                jQuery('#wp-admin-bar-my-account').removeClass('menupop');
+                jQuery('#wp-admin-bar-my-account > a >img').remove();
+                jQuery('#wp-admin-bar-my-account div.ab-sub-wrapper').remove();
+                $logout.prependTo('#wp-admin-bar-top-secondary');
+                <?php if ( 1 === absint( $this->options['adns_enable_logout_confirmation'] ) ) : ?>
+                    $('#wp-admin-bar-logout a').click(function() {
+                        var confirmation = confirm('<?php echo esc_html( $sure_text ); ?>');
+                        if (confirmation) {
+                            return true;
+                        }
+                        return false;
+                    });
+                <?php endif; ?>
             });
         </script>
         <?php
