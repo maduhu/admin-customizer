@@ -78,6 +78,8 @@ class AdminCustomizer {
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
 		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
 		add_action( 'admin_head', array( $this, 'custom_css' ) );
+		add_action( 'login_head', array( $this, 'custom_login_css' ) );
+		add_action( 'login_enqueue_scripts', array( $this, 'login_theme_loader' ) );
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
 
@@ -237,7 +239,7 @@ class AdminCustomizer {
 	}
 
 	/**
-	 * Hide help tab.
+	 * Custom admin CSS.
 	 *
 	 * @since 2.0.0
 	 */
@@ -251,6 +253,33 @@ class AdminCustomizer {
 		if ( 1 === absint( $this->options['adns_hide_whole_footer'] ) ) {
 			echo '<style type="text/css">#wpfooter { display:none!important; }</style>';
 		}
+		// Admin custom CSS.
+		if ( 'CUSTOM' === esc_attr( $this->options['adns_admin_theme'] ) ) {
+			if ( ! empty( $this->options['adns_custom_admin_theme_content'] ) ) {
+				echo '<style>';
+				echo $this->options['adns_custom_admin_theme_content'];
+				echo '</style>';
+			}
+		}
+
+	}
+
+	/**
+	 * Custom login CSS.
+	 *
+	 * @since 2.0.0
+	 */
+	public function custom_login_css() {
+
+		// Login custom CSS.
+		if ( 'CUSTOM' === esc_attr( $this->options['adns_login_theme'] ) ) {
+			if ( ! empty( $this->options['adns_custom_login_theme_content'] ) ) {
+				echo '<style>';
+				echo $this->options['adns_custom_login_theme_content'];
+				echo '</style>';
+			}
+		}
+
 	}
 
 	/**
@@ -290,6 +319,16 @@ class AdminCustomizer {
 		}
 		$output .= wp_kses_post( $this->options['adns_footer_text'] );
 		return $output;
+	}
+
+	/**
+	 * Login theme loader.
+	 *
+	 * @since 2.0.0
+	 */
+	public function login_theme_loader() {
+		$theme = strtolower( esc_attr( $this->options['adns_login_theme'] ) );
+		wp_enqueue_style( 'adns-login-theme', plugins_url( "css/login-theme/$theme.css", __FILE__ ) );
 	}
 }
 
