@@ -130,8 +130,11 @@ if ( ! class_exists('NPF_Options')):
 				foreach ($tab['fields'] as $field_key => $field) {
 
 					// Text
-					if ( 'text' == $field['type'] ) {
-						$input[$field['id']] = sanitize_text_field($input[$field['id']]);
+                    if ( 'text' == $field['type'] ) {
+                        $input[$field['id']] = sanitize_text_field($input[$field['id']]);
+                    }
+					if ( 'custom_css' == $field['type'] ) {
+						$input[$field['id']] = wp_filter_nohtml_kses($input[$field['id']]);
 					}
 					// URL
 					if ( 'url' == $field['type'] ) {

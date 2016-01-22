@@ -104,7 +104,7 @@ $admin_customizer_settings = array(
                     'id'          => 'adns_custom_admin_theme_content',
                     'title'       => __( 'Custom CSS for Admin', 'admin-customizer' ),
                     'description' => __( 'Enter CSS style code. You must chose Custom in Admin Theme option for this to be active.', 'admin-customizer' ),
-                    'type'        => 'textarea',
+                    'type'        => 'custom_css',
                     'default'     => $admin_customizer_default_options['adns_custom_admin_theme_content'],
                 ),
                 'adns_login_theme' => array(
@@ -123,7 +123,7 @@ $admin_customizer_settings = array(
                     'id'      => 'adns_custom_login_theme_content',
                     'title'   => __( 'Custom CSS for Login', 'admin-customizer' ),
                     'description' => __( 'Enter CSS style code. You must chose Custom in Login Theme option for this to be active.', 'admin-customizer' ),
-                    'type'    => 'textarea',
+                    'type'    => 'custom_css',
                     'default' => $admin_customizer_default_options['adns_custom_login_theme_content'],
                 ),
             ),
@@ -299,6 +299,7 @@ $admin_customizer_settings = array(
                 'adns_login_logo_url' => array(
                     'id'          => 'adns_login_logo_url',
                     'title'       => __( 'Login Logo', 'admin-customizer' ),
+                    'description' => sprintf( __( 'Recommended Size: %dpx x %dpx', 'admin-customizer' ) , 274, 63 ),
                     'type'        => 'upload',
                     'default'     => $admin_customizer_default_options['adns_login_logo_url'],
                 ),

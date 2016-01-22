@@ -79,6 +79,8 @@ class AdminCustomizer {
 		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
 		add_action( 'admin_head', array( $this, 'custom_css' ) );
 		add_action( 'login_head', array( $this, 'custom_login_css' ) );
+		add_filter( 'login_headerurl', array( $this, 'change_login_logo_url_link' ) );
+		add_filter( 'login_headertitle', array( $this, 'change_login_logo_url_title' ) );
 		add_action( 'login_enqueue_scripts', array( $this, 'login_theme_loader' ) );
 		// Hide admin default logo.
 		add_action( 'wp_before_admin_bar_render', array( $this, 'hide_admin_logo' ) );
@@ -271,16 +273,58 @@ class AdminCustomizer {
 	 */
 	public function custom_login_css() {
 
+		if ( ! empty( $this->options['adns_login_logo_url'] ) ) {
+			echo '<style type="text/css">
+              div#login h1 a { background-image:url(' . esc_url( $this->options['adns_login_logo_url'] ) . ') !important;
+                    background-size: auto auto !important;width: auto !important;}
+            </style>';
+		}
+
 		// Login custom CSS.
 		if ( 'CUSTOM' === esc_attr( $this->options['adns_login_theme'] ) ) {
 			if ( ! empty( $this->options['adns_custom_login_theme_content'] ) ) {
-				echo '<style>';
+				echo '<style type="text/css">';
 				echo $this->options['adns_custom_login_theme_content'];
 				echo '</style>';
 			}
 		}
 
 	}
+
+	/**
+	 * Change login logo URL link.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $link Login link URL.
+	 * @return string Modified login link URL.
+	 */
+	public function change_login_logo_url_link( $link ) {
+
+		if ( ! empty( $this->options['adns_login_logo_url'] ) ) {
+			$link = esc_url( home_url( '/' ) );
+		}
+		return $link;
+
+	}
+
+	/**
+	 * Change login logo URL title.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $title Login link title.
+	 * @return string Modified login link title.
+	 */
+	public function change_login_logo_url_title( $title ) {
+
+		if ( ! empty( $this->options['adns_login_logo_url'] ) ) {
+			$title = get_bloginfo( 'name', 'display' );
+		}
+		return $title;
+
+	}
+
 
 	/**
 	 * Change footer version content.
@@ -328,7 +372,9 @@ class AdminCustomizer {
 	 */
 	public function login_theme_loader() {
 		$theme = strtolower( esc_attr( $this->options['adns_login_theme'] ) );
-		wp_enqueue_style( 'adns-login-theme', plugins_url( "css/login-theme/$theme.css", __FILE__ ) );
+		if ( ! in_array( $theme, array( '-1', 'custom' ) ) ) {
+			wp_enqueue_style( 'adns-login-theme', plugins_url( "css/login-theme/$theme.css", __FILE__ ) );
+		}
 	}
 }
 
