@@ -99,6 +99,16 @@ class AdminCustomizer {
 		add_filter( 'wp_mail_from', array( $this, 'new_mail_from_email' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'new_mail_from_name' ) );
 
+		// Customize update nagging bar.
+		add_action( 'admin_init', array( $this, 'hide_update_nagging_bar' ) );
+
+		// Revisions.
+		if ( intval( $this->options['adns_max_revision_count'] ) >= 0 ) {
+			if ( ! defined( 'WP_POST_REVISIONS' ) ) {
+				define( 'WP_POST_REVISIONS', intval( $this->options['adns_max_revision_count'] ) );
+			}
+		}
+
 	}
 	/**
 	 * Plugin init.
@@ -509,6 +519,18 @@ class AdminCustomizer {
 			$name = esc_attr( $this->options['adns_default_email_address_name'] );
 		}
 		return $name;
+	}
+
+	/**
+	 * Customize nagging bar.
+	 *
+	 * @since 2.0.0
+	 */
+	public function hide_update_nagging_bar() {
+		if ( 1 === absint( $this->options['adns_hide_update_nagging_bar'] ) ) {
+			remove_action( 'admin_notices', 'update_nag', 3 );
+			remove_action( 'network_admin_notices', 'update_nag', 3 );
+		}
 	}
 }
 
