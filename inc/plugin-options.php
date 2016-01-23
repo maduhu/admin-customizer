@@ -46,7 +46,7 @@ function adns_get_default_options() {
         'adns_footer_text' => __( 'All Rights Reserved &copy;', 'admin-customizer' ),
         'adns_footer_logo' => '',
         'adns_no_of_columns_available_in_dashboard' => 2,
-        'adns_hide_dashboard_widgets' => array( 'dashboard_quick_press' ),
+        'adns_hide_dashboard_widgets' => array( 'dashboard_primary' ),
         'remove_dashboard_widget_normal_core_dashboard_plugins' => 1,
         'remove_dashboard_widget_normal_core_dashboard_recent_comments' => 1,
         'remove_dashboard_widget_side_core_dashboard_primary' => 1,

@@ -91,7 +91,10 @@ class AdminCustomizer {
 		add_filter( 'update_footer', array( $this, 'change_footer_version' ), 9999 );
 		// Footer message.
 		add_filter( 'admin_footer_text', array( $this, 'change_footer_text' ) );
+		// Number of columns in dashboard.
 		add_filter( 'screen_layout_columns', array( $this, 'change_number_of_screen_columns_available' ) );
+		// Number of columns in dashboard.
+		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_widgets_customization' ) );
 
 	}
 	/**
@@ -406,6 +409,53 @@ class AdminCustomizer {
 			$columns['dashboard'] = absint( $this->options['adns_no_of_columns_available_in_dashboard'] );
 		}
 		return $columns;
+	}
+	/**
+	 * Dashboard widgets customization.
+	 *
+	 * @since 2.0.0
+	 */
+	public function dashboard_widgets_customization() {
+
+		if ( ! empty( $this->options['adns_hide_dashboard_widgets'] ) && is_array( $this->options['adns_hide_dashboard_widgets'] ) ) {
+			foreach ( $this->options['adns_hide_dashboard_widgets'] as $widget ) {
+				switch ( $widget ) {
+					case 'dashboard_activity':
+						// Activity.
+						$this->remove_dashboard_widget( 'dashboard_activity', 'normal' );
+						break;
+					case 'dashboard_primary':
+						// WordPress News.
+						$this->remove_dashboard_widget( 'dashboard_primary', 'side' );
+						break;
+					case 'dashboard_right_now':
+						// At a Glance.
+						$this->remove_dashboard_widget( 'dashboard_right_now', 'normal' );
+						break;
+					case 'dashboard_quick_press':
+						// Quick Draft.
+						$this->remove_dashboard_widget( 'dashboard_quick_press', 'side' );
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Dashboard widgets customization.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $widget Widget id.
+	 * @param string $side Widget side.
+	 */
+	private function remove_dashboard_widget( $widget, $side ) {
+		if ( ! in_array( $side, array( 'side', 'normal' ) ) ) {
+			return;
+		}
+		remove_meta_box( $widget, 'dashboard', $side );
 	}
 }
 
