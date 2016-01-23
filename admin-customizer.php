@@ -95,6 +95,9 @@ class AdminCustomizer {
 		add_filter( 'screen_layout_columns', array( $this, 'change_number_of_screen_columns_available' ) );
 		// Number of columns in dashboard.
 		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_widgets_customization' ) );
+		// Mail from name and email customization.
+		add_filter( 'wp_mail_from', array( $this, 'new_mail_from_email' ) );
+		add_filter( 'wp_mail_from_name', array( $this, 'new_mail_from_name' ) );
 
 	}
 	/**
@@ -476,6 +479,36 @@ class AdminCustomizer {
 
 		echo wp_kses_post( $this->options['adns_my_custom_dashboard_widget_content'] );
 
+	}
+
+	/**
+	 * Customize from email.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $email From email.
+	 * @return string Modified from email.
+	 */
+	public function new_mail_from_email( $email ) {
+		if ( ! empty( $this->options['adns_default_email_address_email'] ) ) {
+			$email = esc_attr( $this->options['adns_default_email_address_email'] );
+		}
+		return $email;
+	}
+
+	/**
+	 * Customize from name.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param string $name From email.
+	 * @return string Modified from email.
+	 */
+	public function new_mail_from_name( $name ) {
+		if ( ! empty( $this->options['adns_default_email_address_name'] ) ) {
+			$name = esc_attr( $this->options['adns_default_email_address_name'] );
+		}
+		return $name;
 	}
 }
 
