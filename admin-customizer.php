@@ -410,6 +410,7 @@ class AdminCustomizer {
 		}
 		return $columns;
 	}
+
 	/**
 	 * Dashboard widgets customization.
 	 *
@@ -417,6 +418,7 @@ class AdminCustomizer {
 	 */
 	public function dashboard_widgets_customization() {
 
+		// Show hide dashboard widgets.
 		if ( ! empty( $this->options['adns_hide_dashboard_widgets'] ) && is_array( $this->options['adns_hide_dashboard_widgets'] ) ) {
 			foreach ( $this->options['adns_hide_dashboard_widgets'] as $widget ) {
 				switch ( $widget ) {
@@ -441,6 +443,13 @@ class AdminCustomizer {
 				}
 			}
 		}
+
+		// Add new widget.
+		if ( 1 === absint( $this->options['adns_add_custom_dashboard_widget_onoff'] ) ) {
+			$custom_dashboard_title = esc_attr( $this->options['adns_my_custom_dashboard_widget_title'] );
+			wp_add_dashboard_widget( 'my_custom_dashboard_widget', $custom_dashboard_title, array( $this, 'custom_dashboard_widget_content_function' ) );
+		}
+
 	}
 
 	/**
@@ -456,6 +465,17 @@ class AdminCustomizer {
 			return;
 		}
 		remove_meta_box( $widget, 'dashboard', $side );
+	}
+
+	/**
+	 * Render custom dashboard widgets content.
+	 *
+	 * @since 2.0.0
+	 */
+	public function custom_dashboard_widget_content_function() {
+
+		echo wp_kses_post( $this->options['adns_my_custom_dashboard_widget_content'] );
+
 	}
 }
 

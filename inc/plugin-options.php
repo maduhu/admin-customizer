@@ -63,9 +63,9 @@ function adns_get_default_options() {
         'adns_remove_contact_method_jabber' => 1,
 
         'adns_max_revision_count' => '',
-        'adns_add_custom_dashboard_widget_onoff' => '',
-        'adns_my_custom_dashboard_widget_content' => '',
-        'adns_my_custom_dashboard_widget_title' => '',
+        'adns_add_custom_dashboard_widget_onoff' => 0,
+        'adns_my_custom_dashboard_widget_title' => __( 'Welcome', 'admin-customizer' ),
+        'adns_my_custom_dashboard_widget_content' => __( 'Welcome message goes here.', 'admin-customizer' ),
 
         'adns_admin_theme' => '-1',
         'adns_login_theme' => '-1',
