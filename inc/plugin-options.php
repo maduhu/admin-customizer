@@ -210,8 +210,6 @@ $admin_customizer_settings = array(
                     'choices'     => array(
                         1 => 1,
                         2 => 2,
-                        3 => 3,
-                        4 => 4,
                     ),
                 ),
                 'adns_hide_dashboard_widgets' => array(

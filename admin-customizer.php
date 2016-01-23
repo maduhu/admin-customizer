@@ -91,6 +91,7 @@ class AdminCustomizer {
 		add_filter( 'update_footer', array( $this, 'change_footer_version' ), 9999 );
 		// Footer message.
 		add_filter( 'admin_footer_text', array( $this, 'change_footer_text' ) );
+		add_filter( 'screen_layout_columns', array( $this, 'change_number_of_screen_columns_available' ) );
 
 	}
 	/**
@@ -273,7 +274,7 @@ class AdminCustomizer {
 	 */
 	public function custom_login_css() {
 
-        // Login logo.
+		// Login logo.
 		if ( ! empty( $this->options['adns_login_logo_url'] ) ) {
 			echo '<style type="text/css">
               div#login h1 a { background-image:url(' . esc_url( $this->options['adns_login_logo_url'] ) . ') !important;
@@ -290,19 +291,19 @@ class AdminCustomizer {
 			}
 		}
 
-        // Login background image.
-        if ( ! empty( $this->options['adns_login_background_url'] ) ){
-            echo '<style type="text/css">';
-            echo 'body.login { background : url(' . esc_url( $this->options['adns_login_background_url'] ) . ') no-repeat scroll center top !important; }' ;
-            echo '</style>';
-        }
+		// Login background image.
+		if ( ! empty( $this->options['adns_login_background_url'] ) ) {
+			echo '<style type="text/css">';
+			echo 'body.login { background : url(' . esc_url( $this->options['adns_login_background_url'] ) . ') no-repeat scroll center top !important; }' ;
+			echo '</style>';
+		}
 
-        // Login background color.
-        if ( ! empty( $this->options['adns_login_background_color'] ) ){
-            echo '<style type="text/css">';
-            echo 'body.login {background-color:'  . esc_attr( $this->options['adns_login_background_color'] ) . '!important;} ';
-            echo '</style>';
-        }
+		// Login background color.
+		if ( ! empty( $this->options['adns_login_background_color'] ) ) {
+			echo '<style type="text/css">';
+			echo 'body.login {background-color:'  . esc_attr( $this->options['adns_login_background_color'] ) . '!important;} ';
+			echo '</style>';
+		}
 
 	}
 
@@ -390,6 +391,21 @@ class AdminCustomizer {
 		if ( ! in_array( $theme, array( '-1', 'custom' ) ) ) {
 			wp_enqueue_style( 'adns-login-theme', plugins_url( "css/login-theme/$theme.css", __FILE__ ) );
 		}
+	}
+
+	/**
+	 * Screen columns.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param array $columns Columns array.
+	 * @return array Modified columns array.
+	 */
+	public function change_number_of_screen_columns_available( $columns ) {
+		if ( absint( $this->options['adns_no_of_columns_available_in_dashboard'] ) > 0 ) {
+			$columns['dashboard'] = absint( $this->options['adns_no_of_columns_available_in_dashboard'] );
+		}
+		return $columns;
 	}
 }
 
