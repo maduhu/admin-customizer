@@ -99,15 +99,18 @@ class AdminCustomizer {
 		add_filter( 'wp_mail_from', array( $this, 'new_mail_from_email' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'new_mail_from_name' ) );
 
-		// Customize update nagging bar.
-		add_action( 'admin_init', array( $this, 'hide_update_nagging_bar' ) );
+        // Customize update nagging bar.
+        add_action( 'admin_init', array( $this, 'hide_update_nagging_bar' ) );
 
-		// Revisions.
-		if ( intval( $this->options['adns_max_revision_count'] ) >= 0 ) {
-			if ( ! defined( 'WP_POST_REVISIONS' ) ) {
-				define( 'WP_POST_REVISIONS', intval( $this->options['adns_max_revision_count'] ) );
-			}
-		}
+        // Revisions.
+        if ( intval( $this->options['adns_max_revision_count'] ) >= 0 ) {
+            if ( ! defined( 'WP_POST_REVISIONS' ) ) {
+                define( 'WP_POST_REVISIONS', intval( $this->options['adns_max_revision_count'] ) );
+            }
+        }
+
+		// Admin sidebar content.
+		add_action( 'npf_sidebar_admin-customizer', array( $this, 'admin_sidebar' ) );
 
 	}
 	/**
@@ -532,6 +535,67 @@ class AdminCustomizer {
 			remove_action( 'network_admin_notices', 'update_nag', 3 );
 		}
 	}
+    function admin_sidebar() {
+        ?>
+        <div class="meta-box-sortables">
+
+            <div class="postbox">
+
+                <h3><span>Help &amp; Support</span></h3>
+                <div class="inside">
+                    <h4>Questions, bugs, or great ideas?</h4>
+                    <p><a href="https://wordpress.org/support/plugin/admin-customizer" target="_blank">Visit plugin support page</a>.</p>
+                    <h4>Wanna help make this plugin better?</h4>
+                    <p>
+                        <a href="http://wordpress.org/support/view/plugin-reviews/admin-customizer" target="_blank">Review and rate this plugin on WordPress.org</a>
+                    </p>
+                </div> <!-- .inside -->
+
+            </div> <!-- .postbox -->
+
+            <div class="postbox">
+
+                <h3><span>My Themes and Plugins</span></h3>
+                <div class="inside">
+                    <h4>WordPress Theme</h4>
+                    <p>
+                        <a href="http://www.nilambar.net/2014/03/blue-planet-wordpress-theme-free.html" target="_blank">Blue Planet</a>
+                    </p>
+                    <p>
+                        <a href="http://www.nilambar.net/2015/03/simple-life-free-wordpress-theme.html" target="_blank">Simple Life</a>
+                    </p>
+
+                    <h4>WordPress Plugins</h4>
+                    <p>
+                        <a href="http://www.nilambar.net/2014/07/ns-featured-posts-wordpress-plugin.html" target="_blank">NS Featured Posts</a>
+                    </p>
+                    <p>
+                        <a href="http://www.nilambar.net/2014/06/really-simple-image-widget-wordpress.html" target="_blank">Really Simple Image Widget</a>
+                    </p>
+                    <p>
+                        <a href="http://wordpress.org/plugins/ns-category-widget/" target="_blank">NS Category Widget</a>
+                    </p>
+                    <p>
+                        <a href="http://wordpress.org/plugins/quick-admin/" target="_blank">Quick Admin</a>
+                    </p>
+                    <p>
+                        <a href="http://wordpress.org/plugins/source-affix/" target="_blank">Source Affix</a>
+                    </p>
+                    <p>
+                        <a href="http://wordpress.org/plugins/ns-comment-validator/" target="_blank">NS Comment Validator</a>
+                    </p>
+                    <p>
+                        <a href="http://wordpress.org/plugins/date-today-nepali/" target="_blank">Date Today Nepali</a>
+                    </p>
+                </div> <!-- .inside -->
+
+            </div> <!-- .postbox -->
+
+        </div> <!-- .meta-box-sortables -->
+
+
+        <?php
+    }
 }
 
 $admin_customizer = new AdminCustomizer();
