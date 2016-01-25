@@ -2,9 +2,9 @@
 Contributors: rabmalin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ramrojob1%40gmail%2ecom&lc=US&item_name=Nilambar%20Sharma&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: admin, customize, backend, cms, dashboard, customization, theme,
-Requires at least: 4.2
-Tested up to: 4.4
-Stable tag: 2.0
+Requires at least: 3.5.1
+Tested up to: 4.0
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,15 +20,17 @@ This plugin allows you to customize admin interface of your WordPress site.  Sev
 - Replace 'Howdy' with your own text
 - Rearrange Logout menu
 - Confirmation on Logout
-- Hide WordPress Default Dashboard widgets
+- Set maximum number of columns in Dashboard
+- Hide Wordpress Default Dashboard widgets
 - Add new custom widget in Dashboard
 - Hide or customize admin footer
 - Change logo in Login page
 - Add background image in your Login page
 - Set maximum number of Revisions or disable completely
 - Change Default Email address and Name for sending emails
+- Remove Default User Contact methods
 
-Have any questions or bug report or suggestion, please [visit Github page](https://github.com/ernilambar/admin-customizer). If you like this plugin, please [rate and review](http://wordpress.org/support/view/plugin-reviews/admin-customizer).
+If you like this plugin, please [rate and review](http://wordpress.org/support/view/plugin-reviews/admin-customizer).
 
 
 == Installation ==
@@ -64,14 +66,6 @@ Nice, make a post on the [Support Forum](http://wordpress.org/support/plugin/adm
 
 
 == Changelog ==
-
-= 2.0.0 =
-* Major refactoring of code
-* Better sanitization and escaping of plugin options
-* Upgrade min requirement to WP 4.2
-* Remove deprecated fields
-* WP 4.4 compatibility check
-* CSS styling tweaks
 
 = 1.1.4 =
 * Bug fixes
@@ -128,6 +122,5 @@ Nice, make a post on the [Support Forum](http://wordpress.org/support/plugin/adm
 * Initial release
 
 == Upgrade Notice ==
+Admin Customizer
 
-= 2.0.0 =
-* Major refactoring of code is performed in this release. Please check plugin in your testing environment before updating to live sites.
