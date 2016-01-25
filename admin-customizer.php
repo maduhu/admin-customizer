@@ -74,7 +74,7 @@ class AdminCustomizer {
 		$plugin = plugin_basename( __FILE__ );
 		add_filter( 'plugin_action_links_' . $plugin, array( $this, 'add_settings_link' ) );
 
-		// Admin logo URL.
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_scripts' ) );
 		add_action( 'admin_head', array( $this, 'add_admin_logo' ) );
 		add_action( 'admin_head', array( $this, 'rearrange_logout_menu' ) );
 		add_action( 'admin_head', array( $this, 'custom_css' ) );
@@ -99,15 +99,15 @@ class AdminCustomizer {
 		add_filter( 'wp_mail_from', array( $this, 'new_mail_from_email' ) );
 		add_filter( 'wp_mail_from_name', array( $this, 'new_mail_from_name' ) );
 
-        // Customize update nagging bar.
-        add_action( 'admin_init', array( $this, 'hide_update_nagging_bar' ) );
+		// Customize update nagging bar.
+		add_action( 'admin_init', array( $this, 'hide_update_nagging_bar' ) );
 
-        // Revisions.
-        if ( intval( $this->options['adns_max_revision_count'] ) >= 0 ) {
-            if ( ! defined( 'WP_POST_REVISIONS' ) ) {
-                define( 'WP_POST_REVISIONS', intval( $this->options['adns_max_revision_count'] ) );
-            }
-        }
+		// Revisions.
+		if ( intval( $this->options['adns_max_revision_count'] ) >= 0 ) {
+			if ( ! defined( 'WP_POST_REVISIONS' ) ) {
+				define( 'WP_POST_REVISIONS', intval( $this->options['adns_max_revision_count'] ) );
+			}
+		}
 
 		// Admin sidebar content.
 		add_action( 'npf_sidebar_admin-customizer', array( $this, 'admin_sidebar' ) );
@@ -535,8 +535,14 @@ class AdminCustomizer {
 			remove_action( 'network_admin_notices', 'update_nag', 3 );
 		}
 	}
-    function admin_sidebar() {
-        ?>
+
+	/**
+	 * Admin sidebar.
+	 *
+	 * @since 2.0.0
+	 */
+	public function admin_sidebar() {
+		?>
         <div class="meta-box-sortables">
 
             <div class="postbox">
@@ -592,10 +598,19 @@ class AdminCustomizer {
             </div> <!-- .postbox -->
 
         </div> <!-- .meta-box-sortables -->
-
-
         <?php
-    }
+	}
+
+	/**
+	 * Admin scripts.
+	 *
+	 * @since 2.0.0
+	 */
+	function admin_scripts() {
+
+		wp_enqueue_style( 'admin-customizer-css', plugin_dir_url( __FILE__ ) . '/css/admin.css', false, '2.0.0' );
+
+	}
 }
 
 $admin_customizer = new AdminCustomizer();

@@ -1,11 +1,5 @@
-/* This stylesheet is used to style the admin option form of the plugin. */
-
-#poststuff h2{
-    padding: 1px 2px 0px 0px;
-}
-
-p#footer-left img{
+#footer-left img {
   vertical-align: middle;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
